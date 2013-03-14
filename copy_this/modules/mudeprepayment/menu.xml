@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+    <MAINMENU id="mxorders">
+            <SUBMENU id="mude_displayprepayment" cl="mude_prepayment_admin_order" list="mude_prepayment_order_list">
+                <TAB id="tbclorder_overview" cl="order_overview" />
+                <TAB id="tbclorder_main" cl="order_main" />
+                <TAB id="tbclorder_address" cl="order_address" />
+                <TAB id="tbclorder_article" cl="order_article" />
+                <TAB id="tbclorder_remark" cl="order_remark" />
+                <BTN id="order_newremark" />
+            </SUBMENU>
+    </MAINMENU>
+ </OXMENU>
+</OX>
