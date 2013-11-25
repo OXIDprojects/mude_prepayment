@@ -1,4 +1,1 @@
 ALTER TABLE `oxorder` ADD `mudeprepaymentreminded` DATE NULL ;
-
-INSERT INTO `oxcontents` (`OXID`, `OXLOADID`, `OXSHOPID`, `OXSNIPPET`, `OXTYPE`, `OXACTIVE`, `OXACTIVE_1`, `OXPOSITION`, `OXTITLE`, `OXCONTENT`, `OXTITLE_1`, `OXCONTENT_1`, `OXACTIVE_2`, `OXTITLE_2`, `OXCONTENT_2`, `OXACTIVE_3`, `OXTITLE_3`, `OXCONTENT_3`, `OXCATID`, `OXFOLDER`, `OXTERMVERSION`) VALUES
-('uf2547ecbef1eb2dfcb2ebf2e013acf8', 'mude_prepayment_mailfooter', 'oxbaseshop', 1, 0, 1, 1, '', 'Vorkasse Erinnerung', 'Bitte beachten Sie, dass die von Ihnen getätigte Bestellung nach 3 Wochen ohne Zahlungseingang automatisch von uns storniert wird.\r\n<br><br>\r\nSollten Sie Fragen haben, so stehen wir Ihnen gerne zur Verfügung und freuen uns, von Ihnen zu hören.\r\n<br><br>\r\nMit den allerbesten Grüßen aus Frankfurt,\r\n<br><br>\r\nChristian Bernhard ', '', '', 1, '', '', 1, '', '', '1185ca7b650563eadb8708657472b69a', 'CMSFOLDER_EMAILS', '');
