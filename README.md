@@ -13,7 +13,7 @@ Musterdenker
 mude
 
 == Version == 
-1.2
+2.0, für Shopversion 4.7 & 4.8
 
 == Link == 
 www.musterdenker.de
@@ -34,8 +34,6 @@ Execute install.sql.
 Copy everything from the "copy_this" folder into your shop root folder.
 Empty the "tmp" folder.
 
-== Modules == 
-
-== Libraries ==
-
-== Resources ==
+Changelog:
+	
+	- 19.11.2013 eComStyle.de | Josef Andreas Puckl: Anpassungen für 4.7 & alle Dateien im Modulordner.
