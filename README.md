@@ -13,7 +13,7 @@ Musterdenker
 mude
 
 == Version == 
-2.0, für Shopversion 4.7 & 4.8
+2.1, fÃ¼r Shopversion 4.7 - 4.9
 
 == Link == 
 www.musterdenker.de
@@ -36,4 +36,6 @@ Empty the "tmp" folder.
 
 Changelog:
 	
-	- 19.11.2013 eComStyle.de | Josef Andreas Puckl: Anpassungen für 4.7 & alle Dateien im Modulordner.
+	- 19.11.2013 eComStyle.de | Josef Andreas Puckl: Anpassungen fÃ¼r 4.7 & alle Dateien im Modulordner.
+	- 16.02.2015 Volker Lange (domino) und eComStyle.de | Josef Andreas Puckl - KompatibilitÃ¤t zu Shopversion 4.9.
+
