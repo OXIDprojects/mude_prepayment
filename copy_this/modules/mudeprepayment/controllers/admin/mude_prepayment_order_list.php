@@ -49,6 +49,19 @@ class mude_prepayment_Order_List extends Order_List {
 	}
 
 	/**
+	* Builds and returns SQL query string. Adds additional order check.
+	*
+	* @param object $oListObject list main object.
+	*
+	* @return string
+	*/
+	protected function _buildSelectString($oListObject = null) {
+		$oListObject->addFieldName("mudeprepaymentreminded");
+		$eSql = parent::_buildSelectString($oListObject);
+		return $eSql;
+	}
+
+	/**
 	* Adding folder check
 	*
 	* @param array  $aWhere  SQL condition array
@@ -68,7 +81,9 @@ class mude_prepayment_Order_List extends Order_List {
 		$soxId = oxRegistry::getConfig()->getRequestParameter("oxid");
 		$oOrder = oxNew("oxorder");
 		if ($oOrder->load($soxId)) {
+            $oOrder->addFieldName("mudeprepaymentreminded");
 			$oOrder->oxorder__mudeprepaymentreminded = new oxField(date('Y-m-d'));
+
 			if ($this->_sendReminderMail($oOrder)) {
 				$oOrder->save();
 			}
