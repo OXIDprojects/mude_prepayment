@@ -107,8 +107,9 @@ class mude_prepayment_Order_List extends Order_List {
 		$sContent = oxUtilsView::getInstance()->parseThroughSmarty( $sContent, $oMudeReorder->getId() );
 		}
 		*/
+		$oConfig = $this->getConfig();
 		$oLang = oxRegistry::getLang();
-		$oCur = $this->getConfig()->getActShopCurrencyObject();
+		//$oCur = $this->getConfig()->getActShopCurrencyObject();
 		if ($oOrder->oxorder__oxbillemail->value) {
 			$sMail = $oOrder->oxorder__oxbillemail->value;
 		}
@@ -117,24 +118,32 @@ class mude_prepayment_Order_List extends Order_List {
 			$oUser->load($oOrder->oxorder__userid->value);
 			$sMail = $oUser->oxuser__oxusername->value;
 		}
-		$sSalutaion = $oOrder->oxorder__oxbillsal->value;
-		$sSurName = $oOrder->oxorder__oxbilllname->value;
-		$sSum = $oLang->formatCurrency($oOrder->oxorder__oxtotalbrutsum->value, $oCur);
+		//$sSalutaion = $oOrder->oxorder__oxbillsal->value;
+		//$sSurName = $oOrder->oxorder__oxbilllname->value;
+		//$sSum = $oLang->formatCurrency($oOrder->oxorder__oxtotalbrutsum->value, $oCur);
 		$oSmarty = oxRegistry::get("oxUtilsView")->getSmarty();
 		$oSmarty->assign("charset", $oLang->translateString("charset"));
-		$oSmarty->assign("shop", $oShop);
-		$oSmarty->assign("oViewConf", oxNew('oxViewConfig'));
+		//$oSmarty->assign("shop", $oShop);
+		//$oSmarty->assign("oViewConf", oxNew('oxViewConfig'));
 		$oSmarty->assign("order", $oOrder);
-		$oSmarty->assign("salutaion", $sSalutaion);
-		$oSmarty->assign("surname", $sSurName);
-		$oSmarty->assign("sum", $sSum);
+		//$oSmarty->assign("salutaion", $sSalutaion);
+		//$oSmarty->assign("surname", $sSurName);
+		//$oSmarty->assign("sum", $sSum);
 		//$oEmail->setBody( $sContent );
-		$oEmail->setBody($oSmarty->fetch("email_mudeprepayment_customer.tpl", false));
+		//$oEmail->setBody($oSmarty->fetch("email_mudeprepayment_customer.tpl", false));
 		$sSubject = oxRegistry::getLang()->translateString("EMAIL_MUDEPREPAYMENT_SUBJECT");
 		$oEmail->setSubject($sSubject);
 		$oEmail->setRecipient($sMail, $sMail);
 		$oEmail->setReplyTo($oShop->oxshops__oxorderemail->value, $oShop->oxshops__oxname->
 		                   getRawValue());
+
+		// Force admin to use the correct template-paths (tpl, img)
+		$oConfig->setAdminMode(false);
+
+		$oEmail->setBody($oSmarty->fetch("email_mudeprepayment_customer.tpl", false));
+
+		$oConfig->setAdminMode(true);
+
 		// setting result message
 		if ($oEmail->send()) {
 			$this->_aViewData["mail_succ"] = 1;
